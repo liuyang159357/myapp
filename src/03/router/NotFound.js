@@ -24,7 +24,7 @@ export default function NotFound(props) {
       { 
       state.map((item,index) => 
           <li key={index} onClick={()=>{
-            history.push('/detail/'+item.cinemaId)
+            history.push({pathname:'/detail',state:{id:item.cinemaId}})
           }}>
           {/* <NavLink to={ item}>{item.name}</NavLink> */}
           {item.name}

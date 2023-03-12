@@ -1,16 +1,15 @@
 import { createRoot } from 'react-dom/client';
 import './01/css/01.css'
 
-import App from './03/router'
-import Tabbar from './03/components/Tabbar'
+import App from './03/App'
+import  './03/views/css/App.css'
+import { Provider} from 'react-redux'
+import store from './03/redux/store'
 const container = document.getElementById('root');
 const root = createRoot(container);
-
 root.render(
     <div>
-      
-        <App>
-        <Tabbar></Tabbar>
-
-        </App>
+      <Provider store={store}>
+      <App/>
+      </Provider>
     </div>);

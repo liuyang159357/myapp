@@ -3,7 +3,6 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 export default function NotFound(props) {
   const history=useHistory()
-  console.log(props);
   const [state, setstate] = useState([])
   useEffect(() => {
     axios({

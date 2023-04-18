@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Tabbar from './components/Tabbar'
 import Router from './router'
-import store from './redux/store' 
+import {store} from './redux/store' 
 import {connect} from 'react-redux'
  function App(props) {
   

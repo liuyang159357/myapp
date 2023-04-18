@@ -13,7 +13,7 @@ export default function Router(props) {
         <div>
           
             <BrowserRouter>
-                <Switch>
+                <Switch >
                     <Route path='/a' component={A}></Route>
                     <Route path='/b' component={B}></Route>
                     <Route path='/c' render={()=>{

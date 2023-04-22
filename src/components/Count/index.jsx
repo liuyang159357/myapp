@@ -1,30 +1,28 @@
 import React, { useState } from 'react'
-import store from '../../redux/store.js'
-import { incrementAction, decrementAction, incrementAsyncAction } from '../../redux/action/count_action.js'
-export default function Count() {
-    const [count, setCount] = useState(store.getState())
-    store.subscribe(() => {
-        setCount(store.getState())
-    })
+import { connect } from 'react-redux'
+
+import { incrementAction, decrementAction, incrementAsyncAction } from '../../redux/action/count'
+function Count(props) {
+    console.log(props);
+    const { incrementAction, decrementAction, incrementAsyncAction, count } = props
     const selectNumber = React.createRef()
     const increment = () => {
         const { value } = selectNumber.current
-        store.dispatch(incrementAction(Number(value)))
+        incrementAction((Number(value)))
     }
     const decrement = () => {
         const { value } = selectNumber.current
-        store.dispatch(decrementAction(Number(value)))
-
+        decrementAction((Number(value)))
     }
     const incrementIfOdd = () => {
         const { value } = selectNumber.current
-        store.getState() % 2 !== 0 && store.dispatch(incrementAction(Number(value)))
+        count % 2 !== 0 && incrementAction((Number(value)))
 
     }
     const incrementAsync = () => {
         const { value } = selectNumber.current
-        store.dispatch(incrementAsyncAction(Number(value), 1000))
-
+        console.log(value);
+        incrementAsyncAction(Number(value), 2000)
 
     }
     return (
@@ -42,3 +40,11 @@ export default function Count() {
         </div>
     )
 }
+export default connect(
+    (state) => ({ count: state }),
+    {
+        incrementAction,
+        decrementAction,
+        incrementAsyncAction
+    }
+)(Count)

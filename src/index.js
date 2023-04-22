@@ -1,9 +1,9 @@
 import { createRoot } from 'react-dom/client';
 import './01/css/01.css'
 import 'antd/dist/reset.css';
-import App from './Count'
-// import { Provider } from 'react-redux'
-// import { store, persistor } from './03/redux/store'
+import App from './components/Count'
+import { Provider } from 'react-redux'
+import store from './redux/store'
 // import { PersistGate } from 'redux-persist/integration/react'
 
 
@@ -13,10 +13,10 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <ConfigProvider locale={zhCN}>
-    {/* <Provider store={store}>
-      <PersistGate loading={persistor}>
+    <Provider store={store}>
+      {/* <PersistGate loading={persistor}> */}
         <App />
-      </PersistGate>
-    </Provider> */}
-    <App></App>
+      {/* </PersistGate> */}
+    </Provider>
+    {/* <App></App> */}
   </ConfigProvider>);

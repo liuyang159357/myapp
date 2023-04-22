@@ -9,7 +9,6 @@ function countReducer(preState=0, action) {
             return preState += data
         case DECREMENT:
             return preState -= data
-
         default:
            return preState
 

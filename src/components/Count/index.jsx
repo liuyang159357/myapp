@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 
 import { incrementAction, decrementAction, incrementAsyncAction } from '../../redux/action/count'
 function Count(props) {
-    console.log(props);
-    const { incrementAction, decrementAction, incrementAsyncAction, count } = props
+    const { incrementAction, decrementAction, incrementAsyncAction, count,person } = props
     const selectNumber = React.createRef()
     const increment = () => {
         const { value } = selectNumber.current
@@ -27,7 +26,8 @@ function Count(props) {
     }
     return (
         <div>
-            <h1>当前求和为：{count}</h1>
+            <h2>我是Count组件</h2>
+            <h3>当前求和为：{count}</h3>
             <select ref={selectNumber}>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -37,11 +37,17 @@ function Count(props) {
             <button onClick={decrement}>-</button>&nbsp;
             <button onClick={incrementIfOdd}>当前为奇数再加</button>&nbsp;
             <button onClick={incrementAsync}>异步加</button>
+            <br />
+            <ul>
+             {person?.map((i)=>{
+                return <li key={i.id}>{i.name}--{i.age}</li>
+             })}
+            </ul>
         </div>
     )
 }
 export default connect(
-    (state) => ({ count: state }),
+    ({count,person}) => ({ count: count,person }),
     {
         incrementAction,
         decrementAction,

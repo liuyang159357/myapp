@@ -2,6 +2,7 @@ import { createRoot } from 'react-dom/client';
 import './01/css/01.css'
 import 'antd/dist/reset.css';
 import App from './components/Count'
+import Preson from './components/Preson'
 import { Provider } from 'react-redux'
 import store from './redux/store'
 // import { PersistGate } from 'redux-persist/integration/react'
@@ -16,6 +17,7 @@ root.render(
     <Provider store={store}>
       {/* <PersistGate loading={persistor}> */}
         <App />
+        <Preson/>
       {/* </PersistGate> */}
     </Provider>
     {/* <App></App> */}
